@@ -7,4 +7,8 @@ Rails.application.routes.draw do
   resources :players
   resources :player_holes
   resources :shots
+
+  get '/api', to: 'application#api', as: :api
+  get '/', to: 'home#index', as: :home
+  root 'home#index'
 end

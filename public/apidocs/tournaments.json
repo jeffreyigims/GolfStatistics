@@ -1,0 +1,226 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:3000",
+  "resourcePath": "tournaments",
+  "apis": [
+    {
+      "path": "/tournaments.json",
+      "operations": [
+        {
+          "summary": "Fetches all Tournament objects",
+          "notes": "This lists all the tournaments in PATS system",
+          "nickname": "Tournaments#index",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/tournaments.json",
+      "operations": [
+        {
+          "summary": "Creates a new Tournament",
+          "parameters": [
+            {
+              "paramType": "form",
+              "name": "tour_code",
+              "type": "string",
+              "description": "Tour Code",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "tour_name",
+              "type": "string",
+              "description": "Tour Name",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "pga_tournament_id",
+              "type": "string",
+              "description": "PGA Tournament Identification",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "tournament_name",
+              "type": "string",
+              "description": "Tournament Name",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "start_date",
+              "type": "datetime",
+              "description": "Start Date",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "end_date",
+              "type": "datetime",
+              "description": "End Date",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "year",
+              "type": "string",
+              "description": "Year",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "nickname": "Tournaments#create",
+          "method": "post"
+        }
+      ]
+    },
+    {
+      "path": "/tournaments/{id}.json",
+      "operations": [
+        {
+          "summary": "Shows one Tournament object",
+          "notes": "This lists details of one Tournament",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Tournament Identification",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            }
+          ],
+          "nickname": "Tournaments#show",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "path": "/tournaments/{id}.json",
+      "operations": [
+        {
+          "summary": "Updates an existing Tournament",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Tournament Identification",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "tour_code",
+              "type": "string",
+              "description": "Tour Code",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "tour_name",
+              "type": "string",
+              "description": "Tour Name",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "pga_tournament_id",
+              "type": "string",
+              "description": "PGA Tournament Identification",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "tournament_name",
+              "type": "string",
+              "description": "Tournament Name",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "start_date",
+              "type": "datetime",
+              "description": "Start Date",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "end_date",
+              "type": "datetime",
+              "description": "End Date",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "year",
+              "type": "string",
+              "description": "Year",
+              "required": false
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "nickname": "Tournaments#update",
+          "method": "patch"
+        }
+      ]
+    },
+    {
+      "path": "/tournaments/{id}.json",
+      "operations": [
+        {
+          "summary": "Deletes an existing Tournament",
+          "parameters": [
+            {
+              "paramType": "path",
+              "name": "id",
+              "type": "integer",
+              "description": "Tournament identification",
+              "required": true
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 404,
+              "responseModel": null,
+              "message": "Not Found"
+            },
+            {
+              "code": 406,
+              "responseModel": null,
+              "message": "Not Acceptable"
+            }
+          ],
+          "nickname": "Tournaments#destroy",
+          "method": "delete"
+        }
+      ]
+    }
+  ],
+  "authorizations": null
+}

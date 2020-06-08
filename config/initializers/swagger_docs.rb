@@ -17,7 +17,7 @@ class Swagger::Docs::Config
       :api_file_path => "public/apidocs",
       # the URL base path to your API (make sure to change this if you are not using localhost:3000)
       # :base_path => "http://localhost:3000",
-      :base_path => "golf-statistics.herokuapp.com",
+      :base_path => "https://rocky-inlet-49241.herokuapp.com",
       # if you want to delete all .json files at each generation
       :clean_directory => false,
       # add custom attributes to api-docs

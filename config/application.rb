@@ -32,6 +32,9 @@ module GolfStatistics
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
+    # Stop attacks
+    config.middleware.use Rack::Attack
+
     # Allowing for Cross Origin Resource Sharing (CORS) because this is an API that
     # we'd want other apps to be able to access as needed.
     config.middleware.insert_before 0, Rack::Cors do

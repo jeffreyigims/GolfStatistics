@@ -42,7 +42,7 @@ class RoundHolesController < ApplicationController
   
     def index
       @round_holes = RoundHole.all
-      render json: RoundHoleSerializer.new(@round_holes).serializable_hash
+      render json: @round_holes #RoundHoleSerializer.new(@round_holes).serializable_hash
     end
 
     def show

@@ -2,7 +2,7 @@ class CreatePlayerHoles < ActiveRecord::Migration[5.2]
   def change
     create_table :player_holes do |t|
       t.integer :hole_num
-      t.integer :cNum
+      t.integer :course_num
       t.integer :shots_taken 
       t.integer :par_day 
       t.integer :par_total

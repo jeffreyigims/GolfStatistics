@@ -42,7 +42,7 @@ class RoundsController < ApplicationController
   
     def index
       @rounds = Round.all
-      render json: RoundSerializer.new(@rounds).serializable_hash
+      render json: @rounds #RoundSerializer.new(@rounds).serializable_hash
     end
 
     def show 

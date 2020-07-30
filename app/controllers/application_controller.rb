@@ -5,6 +5,7 @@ class ApplicationController < ActionController::API
     rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
     def api 
+      
     end 
   
     def render_unprocessable_entity_response(exception)

@@ -2,9 +2,7 @@ class CreateShots < ActiveRecord::Migration[5.2]
   def change
     create_table :shots do |t|
       t.integer :shot_num
-      t.datetime :time
-      t.string :t
-      t.string :prv
+      t.string :putt
       t.string :tee
       t.string :cup
       t.string :from

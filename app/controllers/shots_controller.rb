@@ -67,7 +67,7 @@ class ShotsController < ApplicationController
 
   def index
     @shots = Shot.all
-    render json: ShotSerializer.new(@shots).serializable_hash
+    render json: @shots # ShotSerializer.new(@shots).serializable_hash
   end
 
   def create

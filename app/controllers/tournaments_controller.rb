@@ -54,7 +54,7 @@ class TournamentsController < ApplicationController
   
     def index
       @tournaments = Tournament.all
-      render json: TournamentSerializer.new(@tournaments).serializable_hash
+      render json: @tournaments #TournamentSerializer.new(@tournaments).serializable_hash
     end
 
     def show 

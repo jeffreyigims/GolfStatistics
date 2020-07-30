@@ -4,23 +4,23 @@
   "basePath": "http://localhost:3000",
   "apis": [
     {
-      "path": "/apidocs/tournaments.{format}",
+      "path": "/apidocs/api/v1/tournaments.{format}",
       "description": "Tournament Management"
     },
     {
-      "path": "/apidocs/courses.{format}",
+      "path": "/apidocs/api/v1/courses.{format}",
       "description": "Course Management"
     },
     {
-      "path": "/apidocs/rounds.{format}",
+      "path": "/apidocs/api/v1/rounds.{format}",
       "description": "Round Management"
     },
     {
-      "path": "/apidocs/players.{format}",
+      "path": "/apidocs/api/v1/players.{format}",
       "description": "Player Management"
     },
     {
-      "path": "/apidocs/shots.{format}",
+      "path": "/apidocs/api/v1/shots.{format}",
       "description": "Shot Management"
     }
   ],

@@ -1,7 +1,8 @@
-class CoursesController < ApplicationController
+module Api::V1
+  class CoursesController < ApplicationController
     # Start with swagger docs info
     swagger_controller :courses, "Course Management"
-  
+
     swagger_api :index do
       summary "Fetches all Course objects"
       notes "This lists all the courses"
@@ -13,7 +14,7 @@ class CoursesController < ApplicationController
       notes "This lists details of one Course"
       response :not_found
     end
-  
+
     swagger_api :create do
       summary "Creates a new Course"
       param :path, :id, :integer, :required, "Course Identification"
@@ -28,7 +29,7 @@ class CoursesController < ApplicationController
       param :form, :distance_total, :integer, :optional, "Distance Total"
       response :not_acceptable
     end
-  
+
     swagger_api :update do
       summary "Updates an existing Course"
       param :path, :id, :integer, :required, "Course Identification"
@@ -44,26 +45,26 @@ class CoursesController < ApplicationController
       response :not_found
       response :not_acceptable
     end
-  
+
     swagger_api :destroy do
       summary "Deletes an existing Course"
       param :path, :id, :integer, :required, "Course identification"
       response :not_found
       response :not_acceptable
     end
-  
+
     # ----------------------
     # Actual controller code
     before_action :set_course, only: [:show, :update, :destroy]
-  
+
     def index
       @courses = Course.all
       render json: @courses #CourseSerializer.new(@courses).serializable_hash
     end
 
-    def show 
+    def show
       render json: CourseSerializer.new(@course).serializable_hash
-    end 
+    end
 
     def create
       @course = Course.new(course_params)
@@ -73,7 +74,7 @@ class CoursesController < ApplicationController
         render json: @course.errors, status: :unprocessable_entity
       end
     end
-  
+
     def update
       if @course.update(course_params)
         render json: @course
@@ -81,21 +82,22 @@ class CoursesController < ApplicationController
         render json: @course.errors, status: :unprocessable_entity
       end
     end
-  
+
     def destroy
       @course.destroy
       if !@course.destroyed?
         render json: @course.errors, status: :unprocessable_entity
       end
     end
-  
+
     private
-      def set_course
-        @course = Course.find(params[:id])
-      end
-  
-      def course_params
-        params.permit(:pga_course_id, :course_code, :course_name, :par_in, :par_out, :par_total, :distance_in, :distance_out, :distance_total)
-      end
-  
+
+    def set_course
+      @course = Course.find(params[:id])
+    end
+
+    def course_params
+      params.permit(:pga_course_id, :course_code, :course_name, :par_in, :par_out, :par_total, :distance_in, :distance_out, :distance_total)
+    end
   end
+end

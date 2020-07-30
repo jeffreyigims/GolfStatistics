@@ -5,18 +5,18 @@
   "resourcePath": "tournaments",
   "apis": [
     {
-      "path": "/tournaments.json",
+      "path": "/v1/tournaments.json",
       "operations": [
         {
           "summary": "Fetches all Tournament objects",
           "notes": "This lists all the tournaments in PATS system",
-          "nickname": "Tournaments#index",
+          "nickname": "Api::V1::Tournaments#index",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/tournaments.json",
+      "path": "/v1/tournaments.json",
       "operations": [
         {
           "summary": "Creates a new Tournament",
@@ -78,13 +78,13 @@
               "message": "Not Acceptable"
             }
           ],
-          "nickname": "Tournaments#create",
+          "nickname": "Api::V1::Tournaments#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/tournaments/{id}.json",
+      "path": "/v1/tournaments/{id}.json",
       "operations": [
         {
           "summary": "Shows one Tournament object",
@@ -105,13 +105,13 @@
               "message": "Not Found"
             }
           ],
-          "nickname": "Tournaments#show",
+          "nickname": "Api::V1::Tournaments#show",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/tournaments/{id}.json",
+      "path": "/v1/tournaments/{id}.json",
       "operations": [
         {
           "summary": "Updates an existing Tournament",
@@ -185,13 +185,13 @@
               "message": "Not Acceptable"
             }
           ],
-          "nickname": "Tournaments#update",
+          "nickname": "Api::V1::Tournaments#update",
           "method": "patch"
         }
       ]
     },
     {
-      "path": "/tournaments/{id}.json",
+      "path": "/v1/tournaments/{id}.json",
       "operations": [
         {
           "summary": "Deletes an existing Tournament",
@@ -216,7 +216,7 @@
               "message": "Not Acceptable"
             }
           ],
-          "nickname": "Tournaments#destroy",
+          "nickname": "Api::V1::Tournaments#destroy",
           "method": "delete"
         }
       ]

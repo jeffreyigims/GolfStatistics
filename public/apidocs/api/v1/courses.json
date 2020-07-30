@@ -2,149 +2,86 @@
   "apiVersion": "1.0",
   "swaggerVersion": "1.2",
   "basePath": "http://localhost:3000",
-  "resourcePath": "shots",
+  "resourcePath": "courses",
   "apis": [
     {
-      "path": "/shots.json",
+      "path": "/v1/courses.json",
       "operations": [
         {
-          "summary": "Fetches all Shot objects",
-          "notes": "This lists all the shots",
-          "nickname": "Shots#index",
+          "summary": "Fetches all Course objects",
+          "notes": "This lists all the courses",
+          "nickname": "Api::V1::Courses#index",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/shots.json",
+      "path": "/v1/courses.json",
       "operations": [
         {
-          "summary": "Creates a new Shot",
+          "summary": "Creates a new Course",
           "parameters": [
             {
               "paramType": "form",
-              "name": "shot_num",
+              "name": "pga_course_id",
               "type": "string",
-              "description": "Shot Number",
+              "description": "PGA Course Identification",
               "required": false
             },
             {
               "paramType": "form",
-              "name": "time",
-              "type": "datetime",
-              "description": "Time",
-              "required": false
-            },
-            {
-              "paramType": "form",
-              "name": "t",
+              "name": "course_code",
               "type": "string",
-              "description": "t",
+              "description": "Course Code",
               "required": false
             },
             {
               "paramType": "form",
-              "name": "prv",
+              "name": "course_name",
               "type": "string",
-              "description": "prv",
+              "description": "Course Name",
               "required": false
             },
             {
               "paramType": "form",
-              "name": "tee",
-              "type": "string",
-              "description": "Tee Shot",
-              "required": false
-            },
-            {
-              "paramType": "form",
-              "name": "cup",
-              "type": "string",
-              "description": "Cup",
-              "required": false
-            },
-            {
-              "paramType": "form",
-              "name": "from",
-              "type": "string",
-              "description": "From",
-              "required": false
-            },
-            {
-              "paramType": "form",
-              "name": "to",
-              "type": "string",
-              "description": "To",
-              "required": false
-            },
-            {
-              "paramType": "form",
-              "name": "asc",
-              "type": "string",
-              "description": "ASC",
-              "required": false
-            },
-            {
-              "paramType": "form",
-              "name": "dist",
+              "name": "par_in",
               "type": "integer",
-              "description": "Distance Shot",
+              "description": "Par In",
               "required": false
             },
             {
               "paramType": "form",
-              "name": "left",
+              "name": "par_out",
               "type": "integer",
-              "description": "Distance Left",
+              "description": "Par Out",
               "required": false
             },
             {
               "paramType": "form",
-              "name": "x",
+              "name": "par_total",
               "type": "integer",
-              "description": "X-Coordinate",
+              "description": "Par Total",
               "required": false
             },
             {
               "paramType": "form",
-              "name": "y",
+              "name": "distance_in",
               "type": "integer",
-              "description": "Y-Coordinate",
+              "description": "Distance In",
               "required": false
             },
             {
               "paramType": "form",
-              "name": "z",
+              "name": "distance_out",
               "type": "integer",
-              "description": "Z-Coordinate",
+              "description": "Distance Out",
               "required": false
             },
             {
               "paramType": "form",
-              "name": "club",
-              "type": "string",
-              "description": "Club",
-              "required": false
-            },
-            {
-              "paramType": "form",
-              "name": "con",
-              "type": "string",
-              "description": "Con",
-              "required": false
-            },
-            {
-              "paramType": "form",
-              "name": "shot_text",
-              "type": "string",
-              "description": "Description",
-              "required": false
-            },
-            {
-              "paramType": "form",
-              "name": "round_hole_id",
+              "name": "distance_total",
               "type": "integer",
-              "description": "Round Hole Identification",
+              "description": "Distance Total",
               "required": false
             }
           ],
@@ -155,23 +92,23 @@
               "message": "Not Acceptable"
             }
           ],
-          "nickname": "Shots#create",
+          "nickname": "Api::V1::Courses#create",
           "method": "post"
         }
       ]
     },
     {
-      "path": "/shots/{id}.json",
+      "path": "/v1/courses/{id}.json",
       "operations": [
         {
-          "summary": "Shows one Shot object",
-          "notes": "This lists details of one Shot",
+          "summary": "Shows one Course object",
+          "notes": "This lists details of one Course",
           "parameters": [
             {
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Shot Identification",
+              "description": "Course Identification",
               "required": true
             }
           ],
@@ -182,22 +119,22 @@
               "message": "Not Found"
             }
           ],
-          "nickname": "Shots#show",
+          "nickname": "Api::V1::Courses#show",
           "method": "get"
         }
       ]
     },
     {
-      "path": "/shots/{id}.json",
+      "path": "/v1/courses/{id}.json",
       "operations": [
         {
-          "summary": "Updates an existing Shot",
+          "summary": "Updates an existing Course",
           "parameters": [
             {
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Shot Identification",
+              "description": "Course Identification",
               "required": true
             },
             {
@@ -276,22 +213,22 @@
               "message": "Not Acceptable"
             }
           ],
-          "nickname": "Shots#update",
+          "nickname": "Api::V1::Courses#update",
           "method": "patch"
         }
       ]
     },
     {
-      "path": "/shots/{id}.json",
+      "path": "/v1/courses/{id}.json",
       "operations": [
         {
-          "summary": "Deletes an existing Shot",
+          "summary": "Deletes an existing Course",
           "parameters": [
             {
               "paramType": "path",
               "name": "id",
               "type": "integer",
-              "description": "Shot identification",
+              "description": "Course identification",
               "required": true
             }
           ],
@@ -307,7 +244,7 @@
               "message": "Not Acceptable"
             }
           ],
-          "nickname": "Shots#destroy",
+          "nickname": "Api::V1::Courses#destroy",
           "method": "delete"
         }
       ]

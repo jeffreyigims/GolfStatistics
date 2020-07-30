@@ -1,6 +1,7 @@
-class RoundsController < ApplicationController
+module Api::V1
+  class RoundHolesController < ApplicationController
     # Start with swagger docs info
-    swagger_controller :rounds, "Round Management"
+    "" 'swagger_controller :players, "Player Management"
   
     swagger_api :index do
       summary "Fetches all Player objects"
@@ -34,53 +35,53 @@ class RoundsController < ApplicationController
       param :path, :id, :integer, :required, "User ID"
       response :not_found
       response :not_acceptable
-    end
-  
+    end' ""
+
     # ----------------------
     # Actual controller code
-    before_action :set_round, only: [:show, :update, :destroy]
-  
+    before_action :set_round_hole, only: [:show, :update, :destroy]
+
     def index
-      @rounds = Round.all
-      render json: @rounds #RoundSerializer.new(@rounds).serializable_hash
+      @round_holes = RoundHole.all
+      render json: @round_holes #RoundHoleSerializer.new(@round_holes).serializable_hash
     end
 
-    def show 
-      render json: RoundSerializer.new(@rounds).serializable_hash
-    end 
-  
+    def show
+      render json: RoundHoleSerializer.new(@round_hole).serializable_hash
+    end
+
     def create
-      @round = Round.new(round_params)
-      if @round.save
-        render json: @round
+      @round_hole = RoundHole.new(round_hole_params)
+      if @round_hole.save
+        render json: @round_hole
       else
-        render json: @round.errors, status: :unprocessable_entity
+        render json: @round_hole.errors, status: :unprocessable_entity
       end
     end
-  
+
     def update
-      if @round.update(round_params)
-        render json: @round
+      if @round_hole.update(round_hole_params)
+        render json: @round_hole
       else
-        render json: @round.errors, status: :unprocessable_entity
+        render json: @round_hole.errors, status: :unprocessable_entity
       end
     end
-  
+
     def destroy
-      @round.destroy
-      if !@round.destroyed?
-        render json: @round.errors, status: :unprocessable_entity
+      @round_hole.destroy
+      if !@round_hole.destroyed?
+        render json: @round_hole.errors, status: :unprocessable_entity
       end
     end
-  
+
     private
-      def set_round
-        @round = Round.find(params[:id])
-      end
-  
-      def round_params
-        params.permit(:round_num, :tournament_id, :course_id)
-      end
-  
+
+    def set_round_hole
+      @round_hole = RoundHole.find(params[:id])
+    end
+
+    def round_hole_params
+      params.permit(:pga_hole_id, :par, :distance, :stimp, :round_id)
+    end
   end
-  
+end

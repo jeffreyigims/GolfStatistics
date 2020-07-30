@@ -1,7 +1,8 @@
-class PlayersController < ApplicationController
+module Api::V1
+  class PlayersController < ApplicationController
     # Start with swagger docs info
     swagger_controller :players, "Player Management"
-  
+
     swagger_api :index do
       summary "Fetches all Player objects"
       notes "This lists all the players"
@@ -13,7 +14,7 @@ class PlayersController < ApplicationController
       notes "This lists details of one player"
       response :not_found
     end
-  
+
     swagger_api :create do
       summary "Creates a new Player"
       param :form, :first_name, :string, :required, "First Name"
@@ -21,7 +22,7 @@ class PlayersController < ApplicationController
       param :form, :pga_player_id, :string, :required, "PGA Identification"
       response :not_acceptable
     end
-  
+
     swagger_api :update do
       summary "Updates an existing Player"
       param :path, :id, :integer, :required, "Player Identification"
@@ -31,18 +32,18 @@ class PlayersController < ApplicationController
       response :not_found
       response :not_acceptable
     end
-  
+
     swagger_api :destroy do
       summary "Deletes an existing Player"
       param :path, :id, :integer, :required, "Player Identification"
       response :not_found
       response :not_acceptable
     end
-  
+
     # ----------------------
     # Actual controller code
     before_action :set_player, only: [:show, :update, :destroy]
-  
+
     def index
       @players = Player.all
       render json: PlayerSerializer.new(@players).serializable_hash
@@ -51,7 +52,7 @@ class PlayersController < ApplicationController
     def show
       render json: PlayerSerializer.new(@player).serializable_hash
     end
-  
+
     def create
       @player = Player.new(player_params)
       if @player.save
@@ -60,7 +61,7 @@ class PlayersController < ApplicationController
         render json: @player.errors, status: :unprocessable_entity
       end
     end
-  
+
     def update
       if @player.update(player_params)
         render json: @player
@@ -68,22 +69,22 @@ class PlayersController < ApplicationController
         render json: @player.errors, status: :unprocessable_entity
       end
     end
-  
+
     def destroy
       @player.destroy
       if !@player.destroyed?
         render json: @player.errors, status: :unprocessable_entity
       end
     end
-  
+
     private
-      def set_player
-        @player = Player.find(params[:id])
-      end
-  
-      def player_params
-        params.permit(:first_name, :last_name, :pga_player_id)
-      end
-  
+
+    def set_player
+      @player = Player.find(params[:id])
+    end
+
+    def player_params
+      params.permit(:first_name, :last_name, :pga_player_id)
+    end
   end
-  
+end

@@ -1,4 +1,5 @@
-class TournamentSerializer
+module Api::V1
+  class TournamentSerializer
     include FastJsonapi::ObjectSerializer
     attributes :id, :tour_name, :pga_tournament_id, :tournament_name
 
@@ -8,7 +9,7 @@ class TournamentSerializer
 
     attribute :end do |object|
       object.end_date.nil? ? "N/A" : object.end_date.strftime("%m/%d/%Y")
-    end 
+    end
 
     attribute :year
 
@@ -17,6 +18,5 @@ class TournamentSerializer
         RoundSerializer.new(round).serializable_hash
       end
     end
-
   end
-  
+end
